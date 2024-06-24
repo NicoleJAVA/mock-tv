@@ -1,0 +1,194 @@
+.main-container {
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    margin-top: 50px;
+  }
+  
+  .sidebar {
+    width: 130px;
+  }
+  
+  .sidebar-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar-item:hover {
+    transform: scale(1.2);
+  }
+  
+  .grid {
+    width: 700px;
+    height: 750px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(4, auto);
+    /* grid-template-columns: repeat(4, 120px); */
+    gap: 10px;
+    // border: 1px solid blue;
+    /* transform-origin: left top;  */
+    justify-items: center; /* 水平方向對齊到左邊（起始位置） */
+    align-items: center; /* 垂直方向對齊到上面（起始位置） */
+    // grid-auto-rows: auto;
+    // transition: grid-template-rows 0.3s ease; 
+  }
+  
+  .grid-item {
+    // background-color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    // transition: all 0.3s ease;
+    transition: transform 0.3s ease, height 0.3s ease;
+    transform-origin: center center;
+    width: 90px;
+    // height: 60px;
+    height: auto;
+    //  border: 1px solid blue; 
+     transition: transform 0.6s ease;
+  }
+  
+  .item-content {
+    width: 80px;
+    height: 50px;
+    background-color: #f0f0f0;
+
+    border: 1px solid black;
+
+  }
+
+
+  .item-content {
+    text-align: center;
+  }
+  
+  .item-index {
+    margin-top: 10px;
+  }
+  
+
+  .grid-item.hovered {
+    /* transform: scale(1.5); */
+    /* transform: translate(-25%, 0%); */
+    /* z-index: 2; */
+    transform-origin: center center;    
+    /* padding: 40px;  */
+    /* 用 pdding 不要用 margin, 畫面就比較不會 flicker */
+    /* transform-origin: center center; */
+    /* margin: 0px !important; */
+  }
+  
+
+  .grid-item.focused .item-content {
+    background-color: lightblue;
+  } 
+
+  /* 預設間距 */
+  /* .non-hovered-row {
+    margin: 15px;
+  } */
+  
+  /* 最左邊的 grid items 不加 margin-left */
+  .non-hovered-row:nth-child(4n + 1) {
+    margin-left: 0;
+  }
+  
+  /* 最右邊的 grid items 不加 margin-right */
+  .non-hovered-row:nth-child(4n) {
+    margin-right: 0;
+  }
+  
+  /* 最上面的 grid items 不加 margin-top */
+  .non-hovered-row:nth-child(-n + 4) {
+    margin-top: 0;
+  }
+  
+  /* 最下面的 grid items 不加 margin-bottom */
+  .non-hovered-row:nth-last-child(-n + 4) {
+    margin-bottom: 0;
+  }
+
+
+
+/*  */
+  .grid-item:nth-last-child(-n + 4) {
+    align-self: end;
+  }
+
+
+  .grid-item:nth-child(4n + 4) {
+    justify-self: end;
+  }
+
+  .grid > .grid-item:nth-child(-n+4) {
+    align-self: start;
+  }
+
+  .grid > .grid-item:nth-child(4n + 1) {
+    justify-self: start;
+  }
+
+
+  .grid-item {
+    align-self: center; 
+    justify-self: center;
+  }
+
+
+  .hovered-row {
+    align-self: center;
+    justify-self: center;
+    transform: scale(1.3);
+    height: 180px;
+
+    // padding-top: 20px; /* 可以調整行間距 */
+    // padding-bottom: 20px;
+  }
+
+  .non-hovered-row {
+    transform: scale(1.05);
+  }
+
+  /* test test test */
+
+  .grid-item.hovered {
+    // align-self: center;
+    // justify-self: center;
+
+  }
+
+  .hovered.grid-item:nth-last-child(-n + 4) {
+    align-self: end;
+  }
+
+
+  .hovered.grid-item:nth-child(4n + 4) {
+    justify-self: end;
+  }
+
+  .hovered.grid > .grid-item:nth-child(-n+4) {
+    align-self: start;
+  }
+
+  .hovered.grid > .grid-item:nth-child(4n + 1) {
+    justify-self: start;
+  }
+
+
+  // -----
+
+  .subtitle {
+    display: none;
+    width: 60px;
+    height: 30px;
+    background: #000;
+
+  }
+
+.hovered-row .subtitle {
+  // display: block;
+}
