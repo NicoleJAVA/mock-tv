@@ -23,10 +23,12 @@
     width: 700px;
     height: 750px;
     display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-template-rows: repeat(4, auto);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  transition: transform 0.6s, ease;
+
     /* grid-template-columns: repeat(4, 120px); */
-    gap: 10px;
+    // gap: 10px;
     // border: 1px solid blue;
     /* transform-origin: left top;  */
     justify-items: center; /* 水平方向對齊到左邊（起始位置） */
@@ -36,6 +38,7 @@
   }
   
   .grid-item {
+    width: 100%;
     // background-color: white;
     padding: 20px;
     display: flex;
@@ -45,11 +48,10 @@
     // transition: all 0.3s ease;
     transition: transform 0.3s ease, height 0.3s ease;
     transform-origin: center center;
-    width: 90px;
+    // width: 90px;
     // height: 60px;
     height: auto;
     //  border: 1px solid blue; 
-     transition: transform 0.6s ease;
   }
   
   .item-content {
@@ -114,23 +116,23 @@
 
 
 
-/*  */
-  .grid-item:nth-last-child(-n + 4) {
-    align-self: end;
-  }
+// /* section A*/
+  // .grid-item:nth-last-child(-n + 4) {
+  //   align-self: end;
+  // }
 
 
-  .grid-item:nth-child(4n + 4) {
-    justify-self: end;
-  }
+  // .grid-item:nth-child(4n + 4) {
+  //   justify-self: end;
+  // }
 
-  .grid > .grid-item:nth-child(-n+4) {
-    align-self: start;
-  }
+  // .grid > .grid-item:nth-child(-n+4) {
+  //   align-self: start;
+  // }
 
-  .grid > .grid-item:nth-child(4n + 1) {
-    justify-self: start;
-  }
+  // .grid > .grid-item:nth-child(4n + 1) {
+  //   justify-self: start;
+  // }
 
 
   .grid-item {
@@ -150,7 +152,7 @@
   }
 
   .non-hovered-row {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 
   /* test test test */
@@ -161,22 +163,24 @@
 
   }
 
-  .hovered.grid-item:nth-last-child(-n + 4) {
-    align-self: end;
-  }
+
+  // section B
+  // .hovered.grid-item:nth-last-child(-n + 4) {
+  //   align-self: end;
+  // }
 
 
-  .hovered.grid-item:nth-child(4n + 4) {
-    justify-self: end;
-  }
+  // .hovered.grid-item:nth-child(4n + 4) {
+  //   justify-self: end;
+  // }
 
-  .hovered.grid > .grid-item:nth-child(-n+4) {
-    align-self: start;
-  }
+  // .hovered.grid > .grid-item:nth-child(-n+4) {
+  //   align-self: start;
+  // }
 
-  .hovered.grid > .grid-item:nth-child(4n + 1) {
-    justify-self: start;
-  }
+  // .hovered.grid > .grid-item:nth-child(4n + 1) {
+  //   justify-self: start;
+  // }
 
 
   // -----
@@ -191,4 +195,10 @@
 
 .hovered-row .subtitle {
   // display: block;
+}
+
+
+.grid.grid-parent-hovered {
+  transition: transform 0.6s, ease;
+  // transform: scale(1.1);
 }

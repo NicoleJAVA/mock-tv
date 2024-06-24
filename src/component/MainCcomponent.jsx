@@ -89,6 +89,9 @@ const debounce = (func, delay) => {
 const MainComponent = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [hoveredRowIndex, setHoveredRowIndex] = useState(null);
+  const [gridParentHovered, setGridParentHovered] = useState(false);
+
+  
   const lastHoveredRowIndexRef = useRef(null);
   const actionTimerRef = useRef(null);
   const firstEnterTimeRef = useRef(0);
@@ -280,6 +283,16 @@ const handleMouseLeave = () => {
   }, debounceTime);
 };
 
+const handleGridMouseEnter = () => {
+  setGridParentHovered(true);
+}
+const handleGridMouseLeave = () => {
+  setHoveredIndex(null);
+  setHoveredRowIndex(null);
+  setGridParentHovered(false);
+
+};
+
 // ----------------
 
 
@@ -302,7 +315,9 @@ const handleMouseLeave = () => {
       {/* <div className="grid" style={{ gridTemplateRows: `repeat(4, ${hoveredRowIndex !== null ? '200px' : 'auto'})` }}> */}
 
       {/* <div className="grid" style={{ gridTemplateRows: `repeat(4, ${hoveredRowIndex !== null ? (index) => index === hoveredRowIndex ? '200px' : 'auto' : 'auto'})` }}>         */}
-      <div className="grid" >        
+      <div className={`grid ${gridParentHovered ? 'grid-parent-hovered' : ''}`} 
+       onMouseEnter={handleGridMouseEnter}
+      onMouseLeave={handleGridMouseLeave}>        
 
         {items.map((item, index) => (
           <motion.div
